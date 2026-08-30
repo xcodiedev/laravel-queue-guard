@@ -1,0 +1,57 @@
+{
+    "name": "xcodiedev/laravel-queue-guard",
+    "description": "Development-time guard that inspects a queued job before it is dispatched and warns about payloads that will fail, corrupt, or bloat the queue.",
+    "keywords": ["laravel", "queue", "jobs", "serialization", "sqs", "developer-tools", "safety"],
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "xcodiedev"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/contracts": "^12.0 || ^13.0",
+        "illuminate/support": "^12.0 || ^13.0",
+        "psr/log": "^1.1 || ^2.0 || ^3.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^10.0 || ^11.0",
+        "phpunit/phpunit": "^11.0 || ^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xcodiedev\\QueueGuard\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Xcodiedev\\QueueGuard\\Tests\\": "tests/"
+        },
+        "classmap": [
+            "tests/Fixtures/"
+        ]
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "format": "pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Xcodiedev\\QueueGuard\\QueueGuardServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
