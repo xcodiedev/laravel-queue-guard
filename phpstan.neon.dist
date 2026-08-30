@@ -1,0 +1,13 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 6
+    paths:
+        - src
+    treatPhpDocTypesAsCertain: false
+    ignoreErrors:
+        # Consumed by the host application's test suite, which PHPStan cannot see here.
+        -
+            identifier: trait.unused
+            path: src/Testing/InteractsWithQueueGuard.php
